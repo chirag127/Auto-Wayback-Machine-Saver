@@ -3,7 +3,7 @@
  * Handles tab updates and archives URLs
  */
 
-import StorageUtils from "./storage.js";
+import StorageUtils from "../storage.js";
 
 // Constants
 const WAYBACK_SAVE_URL = "https://web.archive.org/save/";
@@ -113,11 +113,11 @@ async function archiveUrl(url) {
 
 /**
  * Handle tab updates
- * @param {number} tabId - The ID of the updated tab
+ * @param {number} _tabId - The ID of the updated tab (unused)
  * @param {Object} changeInfo - Information about the change
  * @param {Object} tab - The updated tab
  */
-async function handleTabUpdate(tabId, changeInfo, tab) {
+async function handleTabUpdate(_tabId, changeInfo, tab) {
     // Only proceed if the page has finished loading and has a URL
     if (changeInfo.status !== "complete" || !tab.url) {
         return;
@@ -166,6 +166,17 @@ async function initialize() {
     const ignoreList = await StorageUtils.getIgnoreList();
     console.log(`Ignore list has ${ignoreList.length} entries`);
 }
+
+// Listen for messages from content scripts or test pages
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+    if (message === "check-extension-status") {
+        sendResponse({
+            status: "active",
+            version: chrome.runtime.getManifest().version,
+        });
+        return true; // Indicates we will send a response asynchronously
+    }
+});
 
 // Initialize when the service worker starts
 initialize();
