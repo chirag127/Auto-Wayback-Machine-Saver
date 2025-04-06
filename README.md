@@ -54,6 +54,12 @@ The extension never archives:
 
 All archive history is stored locally on your device.
 
+## How It Works
+
+The extension uses the Wayback Machine's Save Page Now API to archive web pages. When you visit a page, the extension sends a request to `https://web.archive.org/save/[URL]` to create a snapshot of the page.
+
+The extension includes a default ignore list to prevent archiving of sensitive websites. You can customize this list in the options page.
+
 ## Development
 
 ### Project Structure
@@ -80,6 +86,15 @@ auto-wayback-machine-saver/
 ### Building
 
 No build step is required for this extension. You can load it directly as an unpacked extension in Chrome.
+
+### Testing
+
+To test the extension:
+
+1. Load the extension in Chrome as an unpacked extension
+2. Visit various websites to test auto-archiving
+3. Check the extension popup to see the archive history
+4. Test the ignore list by adding domains and verifying they're not archived
 
 ## License
 

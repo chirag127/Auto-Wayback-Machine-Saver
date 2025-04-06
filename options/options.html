@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Wayback Machine Saver - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Auto Wayback Machine Saver</h1>
+      <h2>Options</h2>
+    </header>
+    
+    <main>
+      <section class="ignore-list-section">
+        <h3>Ignore List</h3>
+        <p class="description">URLs containing these domains or patterns will not be archived.</p>
+        
+        <div class="add-domain-form">
+          <input type="text" id="newDomain" placeholder="Enter domain or pattern (e.g., example.com)">
+          <button id="addDomainBtn">Add</button>
+        </div>
+        
+        <div class="domain-list-container">
+          <ul id="ignoreList" class="domain-list">
+            <li class="loading">Loading...</li>
+          </ul>
+        </div>
+      </section>
+      
+      <section class="history-section">
+        <h3>Archive History</h3>
+        <p class="description">List of pages that have been archived.</p>
+        
+        <div class="history-actions">
+          <button id="clearHistoryBtn" class="danger-btn">Clear History</button>
+        </div>
+        
+        <div class="history-list-container">
+          <div id="historyList" class="history-list">
+            <div class="loading">Loading...</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <p>Auto Wayback Machine Saver uses the <a href="https://archive.org/help/wayback_api.php" target="_blank">Wayback Machine API</a> to archive web pages.</p>
+      <p>Visit the <a href="https://github.com/chirag127/Auto-Wayback-Machine-Saver" target="_blank">GitHub repository</a> for more information.</p>
+    </footer>
+  </div>
+  
+  <script type="module" src="options.js"></script>
+</body>
+</html>

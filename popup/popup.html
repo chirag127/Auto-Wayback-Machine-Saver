@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Wayback Machine Saver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Auto Wayback Machine Saver</h1>
+    </header>
+    
+    <div class="toggle-container">
+      <label class="toggle-switch">
+        <input type="checkbox" id="enableToggle">
+        <span class="slider"></span>
+      </label>
+      <span id="statusText">Auto-archiving is enabled</span>
+    </div>
+    
+    <div class="history-container">
+      <h2>Recent Archives</h2>
+      <div id="historyList" class="history-list">
+        <div class="loading">Loading...</div>
+      </div>
+    </div>
+    
+    <footer>
+      <button id="optionsBtn" class="btn">Options</button>
+      <a href="https://archive.org/" target="_blank" class="btn">Visit Wayback Machine</a>
+    </footer>
+  </div>
+  
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
